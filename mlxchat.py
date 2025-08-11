@@ -363,6 +363,7 @@ Slash commands:
   /max_kv <int>         Set rotating KV cache size (0 disables)
   /config               Show current runtime config
   /aliases              List configured model aliases
+  /system?              Show current system prompt
 
 
 Notes:
@@ -417,6 +418,18 @@ def print_aliases(aliases: Dict[str, str]) -> None:
     print("— Model aliases —")
     for k, v in sorted(aliases.items()):
         print(f"{k.ljust(width)} -> {v}")
+
+def print_system_prompt(eng: "Engine") -> None:
+    s = eng.params.system or ""
+    if not s:
+        print("(system prompt: NONE)")
+        return
+    bar = "-" * 60
+    print("— System prompt —")
+    print(bar)
+    print(s)
+    print(bar)
+    print(f"(length: {len(s)} chars)")
 
 def parse_args(cfg: Dict) -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Streaming local chat for MLX-LM models")
@@ -530,6 +543,8 @@ def main() -> int:
                     print_config_diagnostic(eng, aliases)
                 elif cmd == "aliases":
                     print_aliases(aliases)
+                elif cmd in {"system?", "show_system", "show-system", "sys"}:
+                    print_system_prompt(eng)
                 elif cmd in {"kv", "kv_bits"}:
                     if arg.strip().lower() == "none":
                         eng.params.kv_bits = None
