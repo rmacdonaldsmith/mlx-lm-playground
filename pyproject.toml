@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlxchat"
+version = "0.1.0"
+description = "Streaming CLI chat for local MLX-LM models with memory controls"
+requires-python = ">=3.11"
+dependencies = [
+  "mlx",        # MLX core
+  "mlx-lm",     # MLX LLM wrapper
+]
+
+[project.scripts]
+mlxchat = "mlxchat.cli:main"
+
+[tool.setuptools]
+packages = { find = { include = ["mlxchat*"], exclude = ["tests*"] } }
+

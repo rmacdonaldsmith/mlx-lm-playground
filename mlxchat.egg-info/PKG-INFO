@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: mlxchat
+Version: 0.1.0
+Summary: Streaming CLI chat for local MLX-LM models with memory controls
+Requires-Python: >=3.11
+Requires-Dist: mlx
+Requires-Dist: mlx-lm

@@ -1,0 +1,2 @@
+[console_scripts]
+mlxchat = mlxchat.cli:main
