@@ -1,7 +1,0 @@
-Simple Payment Form Requirements
-
-The system needs a payment form that validates user input:
-- Manadatory fields are: FIrst Name, Last Name, Card number, Address, ZIP
-- Credit card numbers must be valid 
-- ZIP codes are required for billing
-- Clear error messages should be shown for invalid inputs
