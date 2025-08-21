@@ -3,18 +3,32 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mlxchat"
+name = "mlx-qa-suite"
 version = "0.1.0"
-description = "Streaming CLI chat for local MLX-LM models with memory controls"
+description = "MLX Chat + QA Test Scenario Generator - Local LLMs for development and testing"
 requires-python = ">=3.11"
 dependencies = [
-  "mlx",        # MLX core
-  "mlx-lm",     # MLX LLM wrapper
+  "mlx",           # MLX core
+  "mlx-lm",        # MLX LLM wrapper
+  "openai>=1.0.0", # OpenAI client for unified API
+  "pydantic>=2.5", # Data validation (v2.5+ for stable field_validator)
+  "requests",      # HTTP client
 ]
 
 [project.scripts]
 mlxchat = "mlxchat.cli:main"
+qa-generator = "qa_generator.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-asyncio",
+  "pytest-mock", 
+  "black",
+  "ruff",
+  "mypy",
+]
 
 [tool.setuptools]
-packages = { find = { include = ["mlxchat*"], exclude = ["tests*"] } }
+packages = { find = { include = ["mlxchat*", "qa_generator*"], exclude = ["tests*"] } }
 

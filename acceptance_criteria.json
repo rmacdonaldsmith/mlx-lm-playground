@@ -1,0 +1,6 @@
+{
+  "acceptance_criteria": [
+    "US ZIP code is required when saving a card",
+    "Card number must pass Luhn validation; otherwise show a validation error"
+  ]
+}

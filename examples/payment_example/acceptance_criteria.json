@@ -1,0 +1,12 @@
+{
+  "acceptance_criteria": [
+    "US ZIP code is required when saving a card",
+    "Card number must pass Luhn validation; otherwise show a validation error",
+    "Credit card expiration date must be in the future",
+    "CVV field is required and must be 3-4 digits depending on card type",
+    "Cardholder name is required and must contain only letters, spaces, and hyphens",
+    "Form must validate all fields before allowing submission",
+    "Error messages must be displayed next to the relevant input field",
+    "Successful payment must redirect to confirmation page within 3 seconds"
+  ]
+}
