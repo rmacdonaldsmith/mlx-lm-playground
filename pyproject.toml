@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mlx-qa-suite"
+name = "mlx-qa-generator"
 version = "0.1.0"
-description = "MLX Chat + QA Test Scenario Generator - Local LLMs for development and testing"
+description = "QA Test Scenario Generator using local MLX models - Transform PRDs into comprehensive test plans"
 requires-python = ">=3.11"
 dependencies = [
   "mlx",           # MLX core
@@ -16,7 +16,6 @@ dependencies = [
 ]
 
 [project.scripts]
-mlxchat = "mlxchat.cli:main"
 qa-generator = "qa_generator.cli:main"
 
 [project.optional-dependencies]
@@ -30,5 +29,5 @@ dev = [
 ]
 
 [tool.setuptools]
-packages = { find = { include = ["mlxchat*", "qa_generator*"], exclude = ["tests*"] } }
+packages = { find = { include = ["qa_generator*"], exclude = ["tests*"] } }
 
